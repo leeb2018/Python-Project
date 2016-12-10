@@ -16,7 +16,7 @@ def get_restaurant_url(restaurant):
 	print(html)                                         
 	tree = lxml.html.fromstring(html)
 	# Yelp's class name and id name occasionally
-	results = tree.xpath("//div[@class='search-result natural-search-result hero-search-result' and @data-key='1']")
+	results = tree.xpath("//div[@data-key='1']")
 	print(results)
 	result = results[0]
 	a_tag = lxml.html.fromstring(lxml.html.tostring(result)).xpath("//a[@class='biz-name js-analytics-click']")
@@ -46,16 +46,21 @@ def get_rating(rest_url):
 def sentiment_score(reviews):
 	sid = SentimentIntensityAnalyzer()
 	num_reviews = len(reviews)
-	total_score = 0
+	positive_score = 0
+	negative_score = 0
 	for review_html in reviews:
 		review = review_html.text_content()
 		print("\n------------------------------------------------------")
 		print(review)
 		print(sid.polarity_scores(review))
-		total_score += sid.polarity_scores(review)['pos'] - sid.polarity_scores(review)['neg']
+		positive_score += sid.polarity_scores(review)['pos']
+		negative_score += sid.polarity_scores(review)['neg']
 		print("------------------------------------------------------\n")
+
+	postivity_ratio = positive_score / (positive_score + negative_score)
+	postivity_score = postivity_ratio * 100
 	# return str(round_rating(2.5 + (2.5 * total_score / num_reviews)))
-	return str(2.5 + (2.5 * total_score / num_reviews)) + " star rating"
+	return '%.1f'%(postivity_score)
 
 def round_rating(number):
     return round(number * 2) / 2

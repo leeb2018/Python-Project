@@ -1,5 +1,5 @@
 .form_container {
-	background-color: yellow;
+	background-color: blue;
 	position: absolute;
   	top: 50%;
     transform: translateY(-50%);
@@ -13,6 +13,7 @@ body {
 	max-width: 96%;
 	margin: 0 auto;
 }
+
 a {
 	color: #69C;
 	text-decoration: none;
