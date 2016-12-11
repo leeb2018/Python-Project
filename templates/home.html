@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<head>
+  <head>
 		<title>CIS192 Project</title>
 		<link rel="stylesheet" href="../static/home.css?q=1280549790"
    type="text/css" media="screen" charset="utf-8" />
-		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	</head>
-	<body>
-		<div class="form_container">
-			<h1>CIS192 Project</h1>
-			<form>
-				Restaurant Name: <input type="text" name="restaurant"><br>
-				<input type="submit" value="Search" formmethod="post" formaction="/result">
-			</form>
-			<form id="demo-2">
-				<input type="search" placeholder="Search">
-				<input type="submit" formmethod="post" formaction="/result"/>
-			</form>
-		</div>	
-	</body>
+  <body>
+  <div class="content_container">
+<div class="title_container">
+        <text class="title">Rating from Reviews</text>
+        <text class="sub_title">by NLP</text>
+</div>
+<div class="container">
+  <form action="" class="Search">
+    <input class="Search-box" type="search" placeholder="Search Restaurant" onfocus="this.placeholder = ''" onblur = "this.placeholder = 'Search Restaurant'" formmethod="post" formaction="/result" id="Search-box" autocomplete="off">
+    <label class="Search-label" for="Search-box"><i class="fa fa-search"></i></label>
+  </form>
+</div>
+</div>
+  </body>
 </html>
