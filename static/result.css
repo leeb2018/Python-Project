@@ -1,1 +1,42 @@
-result.css
+body {
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.content_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.bottom_container {
+  background: blue;
+  height: 75px;
+}
+
+.restaurant_title {
+  display: inline-block;
+  background: red;
+  width: 80%;
+  height: 100%;
+}
+
+.return_container {
+  display: inline-block;
+  width: 19%;
+  height: 100%;
+  background: green;
+}
+
+form {
+  
+}
+
+input {
+  background: url(../images/refresh_btn.jpg);
+}

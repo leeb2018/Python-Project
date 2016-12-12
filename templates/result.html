@@ -2,16 +2,21 @@
 <html>
 	<head>
 		<title>CIS192 Project</title>
-		<link rel="stylesheet" href="../static/home.css">
+		<link rel="stylesheet" href="../static/result.css">
 	</head>
 	<body>
-
-		<h1>Result</h1>
-		<h2>Actaul Rating: {{ actual_rating }} </h2>
-		<h2>Estimated Rating: {{ estimated_rating }} </h2>
-		<form>
-			<input type="submit" value="Go Back" formaction="/">
-		</form>
-
+    <div class="content_container">
+      <h1>Result</h1>
+      <h2>Actaul Rating: {{ actual_rating }} </h2>
+      <h2>Estimated Rating: {{ estimated_rating }} </h2>
+      <div class="bottom_container">
+        <div class="restaurant_title">
+          hello
+        </div>
+        <div class="return_container">
+	        <button type="submit" style="border: 0; background: transparent" formaction="/">
+	    		<img src="../images/refresh_btn.jpg" width="60" height="60" alt="submit" />
+			</button>
+    	</div>
 	</body>
 </html>
