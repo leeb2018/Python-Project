@@ -24,8 +24,23 @@ def process():
     '''
     scrapper = YelpScrapper(request.form["restaurant"])
     info = scrapper.processed_info
+    q = info["rating_pq"]
+
+    ''' generator created '''
+    rating = get_review(q.qsize())
+    for _ in range(q.qsize()):
+    	a = next(rating)
+    	print(a[0])
+    	print(a[1])
+    ''' print all reviews sorted by closeness to averate nlp rating'''
+
     return result(info["actual_rating"],
                   info["expected_rating"], str(scrapper))
+
+
+def get_review(q):
+	while not q.empty():
+		yield q.get()
 
 
 def result(a_rating, e_rating, rest_name):
