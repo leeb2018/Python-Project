@@ -27,15 +27,18 @@ def process():
     q = info["rating_pq"]
 
     ''' generator created '''
-    rating = get_review(q.qsize())
+    rating = get_review(q)
+    a = next(rating)
+    '''
     for _ in range(q.qsize()):
     	a = next(rating)
     	print(a[0])
     	print(a[1])
+    '''
     ''' print all reviews sorted by closeness to averate nlp rating'''
 
     return result(info["actual_rating"],
-                  info["expected_rating"], str(scrapper))
+                  info["expected_rating"], str(scrapper), a[1])
 
 
 def get_review(q):
@@ -43,14 +46,15 @@ def get_review(q):
 		yield q.get()
 
 
-def result(a_rating, e_rating, rest_name):
+def result(a_rating, e_rating, rest_name, rest_review):
     ''' render the result page with actual Yelp rating, our estimated rating,
     retaurant's name with "go back" button to allow users to return to the main
     page.
     '''
     return render_template("result.html", actual_rating=a_rating,
                            estimated_rating=e_rating,
-                           restaurant_name=rest_name)
+                           restaurant_name=rest_name,
+                           restaurant_review=rest_review)
 
 
 def main():
