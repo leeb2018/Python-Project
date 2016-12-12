@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>CIS192 Project</title>
-		<link rel="stylesheet" href="../static/result.css">
-	</head>
-	<body>
+  <head>
+    <title>CIS192 Project</title>
+    <link rel="stylesheet" href="../static/result.css?q=1280549799">
+  </head>
+  <body>
     <div class="content_container">
-      <h1>Result</h1>
       <h2>Yelp Rating: {{ actual_rating }} </h2>
       <h2>NLP Rating: {{ estimated_rating }}%</h2>
       <div class="bottom_container">
-        <div class="restaurant_title">
+        <div class="restaurant_title_container">
           {{ restaurant_name }}
         </div>
+        <div class="space_container"></div>
         <div class="return_container">
           <form action="/">
-  	        <button type="submit" style="border: 0; background: transparent" value="/">
-  	    		<img src="../static/refresh_btn.jpg" width="60" height="60" alt="submit" />
+            <button type="submit" style="border: 0; background: transparent" value="/">
+            <img src="../static/refresh_btn.jpg" width="60" height="60" alt="submit" />
           </form>
-			</button>
-    	</div>
-	</body>
+      </button>
+      </div>
+  </body>
 </html>

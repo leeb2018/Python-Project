@@ -6,35 +6,62 @@ body {
   background-size: cover;
 }
 
+h2 {
+  color: white;
+  font-family: Helvetica-Light, Sans-serif;
+  font-size: 3.0em;
+}
+
 .content_container {
     position: fixed;
     top: 50%;
     left: 50%;
+    min-width: 650px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 .bottom_container {
-  background: blue;
-  height: 75px;
+  display: flex;
+  max-width: 620px;
+  justify-content: center;
 }
 
-.restaurant_title {
-  display: inline-block;
-  background: red;
+.restaurant_title_container {
+  align-self: center;
+  background: #bb5151;
+  color: white;
+  text-align: center;
+  font-family: Helvetica, Sans-serif;
+  font-size: 1.5em;
   width: 80%;
-  height: 100%;
+  vertical-align: middle;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.space_container {
+  align-self: center;
+  width: 1%;
+  height: 60px;
+  vertical-align: middle;
 }
 
 .return_container {
-  display: inline-block;
-  width: 19%;
-  height: 100%;
-  background: green;
+  align-self: center;
+  height: 60px;
+  vertical-align: middle;
 }
 
-form {
-  
+img {
+  height: 60px;
+  width: 60px;
+}
+
+button {
+  height: 60px;
+  width: 60px;
 }
 
 input {
