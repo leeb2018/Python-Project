@@ -50,12 +50,8 @@ def sentiment_score(reviews):
 	negative_score = 0
 	for review_html in reviews:
 		review = review_html.text_content()
-		print("\n------------------------------------------------------")
-		print(review)
-		print(sid.polarity_scores(review))
 		positive_score += sid.polarity_scores(review)['pos']
 		negative_score += sid.polarity_scores(review)['neg']
-		print("------------------------------------------------------\n")
 
 	postivity_ratio = positive_score / (positive_score + negative_score)
 	postivity_score = postivity_ratio * 100

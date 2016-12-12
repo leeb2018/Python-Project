@@ -1,5 +1,5 @@
 body {
-  background: url(../images/background.jpg) no-repeat center center fixed; 
+  background: url(background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -38,5 +38,5 @@ form {
 }
 
 input {
-  background: url(../images/refresh_btn.jpg);
+  background: url(refresh_btn.jpg);
 }

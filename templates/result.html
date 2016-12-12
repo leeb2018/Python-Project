@@ -7,15 +7,17 @@
 	<body>
     <div class="content_container">
       <h1>Result</h1>
-      <h2>Actaul Rating: {{ actual_rating }} </h2>
-      <h2>Estimated Rating: {{ estimated_rating }} </h2>
+      <h2>Yelp Rating: {{ actual_rating }} </h2>
+      <h2>NLP Rating: {{ estimated_rating }}%</h2>
       <div class="bottom_container">
         <div class="restaurant_title">
           hello
         </div>
         <div class="return_container">
-	        <button type="submit" style="border: 0; background: transparent" formaction="/">
-	    		<img src="../images/refresh_btn.jpg" width="60" height="60" alt="submit" />
+          <form action="/">
+  	        <button type="submit" style="border: 0; background: transparent" value="/">
+  	    		<img src="../static/refresh_btn.jpg" width="60" height="60" alt="submit" />
+          </form>
 			</button>
     	</div>
 	</body>
