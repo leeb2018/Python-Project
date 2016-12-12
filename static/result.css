@@ -12,6 +12,16 @@ h2 {
   font-size: 3.0em;
 }
 
+.restaurant_review_container {
+  color: white;
+  font-family: Helvetica-Light, Sans-serif;
+  font-size: 1.0em;
+  vertical-align: middle;
+  padding-botton: 30px;
+  max-width: 650px;
+  text-align: center;
+}
+
 .content_container {
     position: fixed;
     top: 50%;
@@ -23,6 +33,7 @@ h2 {
 
 .bottom_container {
   display: flex;
+  margin-top: 30px;
   max-width: 620px;
   justify-content: center;
 }
