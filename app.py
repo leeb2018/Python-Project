@@ -4,7 +4,6 @@ from flask import request
 from yelp_scrapper import *
 
 
-
 app = Flask(__name__)
 
 
@@ -15,18 +14,17 @@ def home():
 
 @app.route('/result', methods=['POST'])
 def process():
-    ratings = process_query(request.form["restaurant"])
-    print(ratings)
-    return result(ratings['actual_rating'], ratings['expected_rating'])
+    scrapper = YelpScrapper(request.form["restaurant"])
+    info = scrapper.processed_info
+    return result(info["actual_rating"], info["expected_rating"], str(scrapper))
 
 
-def result(a_rating, e_rating):
+def result(a_rating, e_rating, rest_name):
     return render_template("result.html", actual_rating = a_rating,\
-     	estimated_rating = e_rating)
+     	estimated_rating = e_rating, restaurant_name = rest_name)
 
 
 def main():
-
     app.debug = True
     app.run()
 
