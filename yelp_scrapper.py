@@ -12,10 +12,22 @@ class YelpScrapper(object):
 
 
 	def __str__(self):
+		''' Returns the name of restaurant that scrapper is told to find.'''
 		return self.query.title()
 
 
+	def __len__(self):
+        ''' Returns the number of reviews analyzed.'''
+        return len(self.processed_info["reviews"])
+
+
 	def get_reviews(func):
+		''' Retrieves reviews from the target restaurant page.
+        Our implementation uses url to restaurant page obtained from
+        get_restaurant_url() method and finds all the <div> tag with class
+        "review-content" and its child <p> tag with attribute "lang" = "en"
+        which contains all the reviews in English on that page.
+        '''
 		def get_url(restaurant):
 			info_dict = func(restaurant)
 			url = info_dict["url"]
@@ -29,6 +41,12 @@ class YelpScrapper(object):
 
 
 	def get_rating(self, rest_url):
+		''' Retrieves the Yelp rating from the target restaurant page.
+        Our implementation uses url to restaurant page obtained from
+        get_restaurant_url() method and finds all the <img> tag with class
+        "offscreen" and find attribute "alt", which has value that corresponds
+        to actual Yelp rating.
+        '''
 		html = requests.get(rest_url).content                                          
 		tree = lxml.html.fromstring(html)
 		
@@ -38,6 +56,13 @@ class YelpScrapper(object):
 
 
 	def sentiment_score(func):
+		''' Analyze reviews obtained from get_reviews() method.
+        This method iterate through those reviews and analyze each review,
+        using nltk sentiment analyzer. Sentiment analyzer give each review
+        postive score and negative score. This method sums postive scores and
+        negative scores and return ratio of positive score compared to negative
+        score in percentage to represent our analyzed score.
+        '''
 		def reviews(self, restaurant):
 			info_dict = func(restaurant)
 			sid = SentimentIntensityAnalyzer()
@@ -60,6 +85,13 @@ class YelpScrapper(object):
 	@sentiment_score
 	@get_reviews
 	def get_restaurant_url(restaurant):
+		''' Takes user's query as an argument and return url for the restaurant.
+		Our implementation finds the first <div> tag with attribute "data-key",
+		whose value is 1 - it is the first search result based on the query, which
+		is usually the restaurant that the user is looking for. And, strips url
+		from there by finding <a> tag with classname "biz-name js-analytics-click"
+		and getting the value of its attribute "href" - equivalent to url.
+        '''
 		BASE_URL = "http://www.yelp.com"                                            
 		search = restaurant                                                    
 		location ="Philadelphia, PA"
@@ -81,6 +113,10 @@ class YelpScrapper(object):
 
 
 	def process_query(self, restaurant):
+		''' Brings all the methods together to create crucial dictionary
+		containing necessary information such as actual_rating, our rating,
+		url and all the obtained reviews
+        '''
 	    info_dict = self.get_restaurant_url(restaurant)
 	    a_rating = self.get_rating(info_dict["url"])
 	    info_dict["actual_rating"] = a_rating
