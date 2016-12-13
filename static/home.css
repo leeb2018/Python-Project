@@ -45,7 +45,6 @@ body {
   text-align: right;
   font-family: Helvetica, Sans-serif;
   font-size: 1.0em;
-
 }
 
 .Search {
@@ -91,3 +90,11 @@ body {
   transform: translateX(12px);
 }
 
+.name {
+  position: fixed;
+  font-family: Helvetica-Light;
+  color: white;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}

@@ -69,6 +69,15 @@ h2 {
   vertical-align: middle;
 }
 
+.name {
+  position: fixed;
+  font-family: Helvetica-Light;
+  color: white;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
 img {
   height: 60px;
   width: 60px;
