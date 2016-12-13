@@ -22,6 +22,10 @@ h2 {
   text-align: center;
 }
 
+.restaurant_review_container:hover {
+  opacity: 0.75;
+}
+
 .content_container {
     position: fixed;
     top: 50%;
