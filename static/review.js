@@ -7,7 +7,6 @@ $(document).ready(function() {
             success: function(response) {
             	var kvPair = response["review"];
             	newReview = kvPair[1];
-            	console.log(newReview);
                 $('.restaurant_review_container').html(newReview);
             },
             error: function(error) {

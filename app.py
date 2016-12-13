@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, json, request
 from flask import render_template
 from yelp_scrapper import *
+import copy
 
 
 app = Flask(__name__)
 global generator
+global pq
 
 
 @app.route('/')
@@ -23,9 +25,12 @@ def process():
     using provided info and Jinja2
     '''
     global generator
+    global pq
     scrapper = YelpScrapper(request.form["restaurant"])
     info = scrapper.processed_info
-    q = info["rating_pq"]
+    pq = info["rating_pq"]
+    q = Q.PriorityQueue()
+    q.queue = copy.deepcopy(pq.queue)
 
     ''' generator created '''
     generator = get_review(q)
@@ -37,13 +42,27 @@ def process():
 
 
 def get_review(q):
+    global pq
     while not q.empty():
         yield q.get()
+    q.queue = copy.deepcopy(pq.queue) 
+    yield q.get()
 
 
 @app.route('/getReview', methods=['POST'])
 def get_next_review():
     global generator
+    global pq
+
+    review = "No review found :("
+
+    try:
+        review = next(generator)
+    except StopIteration:
+        q = Q.PriorityQueue()
+        q.queue = copy.deepcopy(pq.queue)
+        generator = get_review(q) 
+
     return jsonify({"review": next(generator)})
 
 
