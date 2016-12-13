@@ -6,6 +6,7 @@ from yelp_scrapper import *
 app = Flask(__name__)
 global generator
 
+
 @app.route('/')
 def home():
     ''' render the main page with search box for users to input restaurant name
@@ -43,7 +44,7 @@ def get_review(q):
 @app.route('/getReview', methods=['POST'])
 def get_next_review():
     global generator
-    return jsonify({ "review": next(generator) })
+    return jsonify({"review": next(generator)})
 
 
 def result(a_rating, e_rating, rest_name, rest_review):
