@@ -2,16 +2,21 @@
 <html>
   <head>
     <title>CIS192 Project</title>
-    <link rel="stylesheet" href="../static/result.css?q=1280549799">
+    <link rel="stylesheet" href="../static/result.css?q=1280549810">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js?q=3"></script>
+    <script src="../static/review.js?q=1280549811"></script>
   </head>
   <body>
     <div class="content_container">
       <h2>Yelp Rating: {{ actual_rating }} </h2>
       <h2>NLP Rating: {{ estimated_rating }}%</h2>
+      <div class="restaurant_review_container">
+          "{{ restaurant_review }}"
+      </div>
       <div class="bottom_container">
         <div class="restaurant_title_container">
           {{ restaurant_name }}
-        </div>
+        </div>      
         <div class="space_container"></div>
         <div class="return_container">
           <form action="/">
