@@ -1,6 +1,7 @@
 import requests                                                             
 import lxml.html 
-import nltk                                                
+import nltk
+
 try:
     import Queue as Q  # ver. < 3.0
 except ImportError:
