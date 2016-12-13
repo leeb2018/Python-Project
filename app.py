@@ -29,12 +29,6 @@ def process():
     ''' generator created '''
     generator = get_review(q)
     a = next(generator)
-    '''
-    for _ in range(q.qsize()):
-    	a = next(rating)
-    	print(a[0])
-    	print(a[1])
-    '''
     ''' print all reviews sorted by closeness to averate nlp rating'''
 
     return result(info["actual_rating"],

@@ -22,6 +22,10 @@ h2 {
   text-align: center;
 }
 
+.restaurant_review_container:hover {
+  opacity: 0.75;
+}
+
 .content_container {
     position: fixed;
     top: 50%;
@@ -63,6 +67,15 @@ h2 {
   align-self: center;
   height: 60px;
   vertical-align: middle;
+}
+
+.name {
+  position: fixed;
+  font-family: Helvetica-Light;
+  color: white;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
 }
 
 img {
