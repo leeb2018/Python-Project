@@ -72,6 +72,7 @@ class YelpScrapper(object):
             positive_score = 0
             negative_score = 0
             review_rating_list = []
+            positivity_ratio = 0
 
             for review_html in reviews:
                 review = review_html.text_content()
